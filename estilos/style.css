@@ -23,6 +23,7 @@
   --fundo-card: #ffffff;
 }
 
+
 body.escuro {
   --fundo-principal: #222222;
   --texto: #e0e0e0;
