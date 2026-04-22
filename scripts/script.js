@@ -24,13 +24,19 @@ botao.addEventListener('click', () => {
 
 // Scroll suave para links de navegação
 const navLinks = document.querySelectorAll('#menu ul a.link');
+
 navLinks.forEach(link => {
   link.addEventListener('click', function(e) {
     e.preventDefault();
+
     const target = document.querySelector(this.getAttribute('href'));
+
     if (target) {
-      const headerHeight = document.querySelector('header').offsetHeight;
-      const targetPosition = target.offsetTop - headerHeight - 20;
+      const header = document.querySelector('header');
+      const headerHeight = header ? header.offsetHeight : 0;
+
+      const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight - 20;
+
       window.scrollTo({
         top: targetPosition,
         behavior: 'smooth'
